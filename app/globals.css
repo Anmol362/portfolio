@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #1d2029;
+  --surface: #222632;
+  --surface-alt: #262b38;
+  --text: #e9ecf5;
+  --muted: #9aa3b7;
+  --border: #343a49;
+  --accent: #c792ea;
+  --accent-2: #79e0d1;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f4f8;
+  --surface: #ffffff;
+  --surface-alt: #f8f9fb;
+  --text: #1d2333;
+  --muted: #4b5565;
+  --border: #d7dce6;
+  --accent: #8b5cf6;
+  --accent-2: #0ea5e9;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+.grid-overlay {
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 0
+    );
+  background-size: 40px 40px, 120px 120px;
+  mask-image: linear-gradient(transparent, rgba(0, 0, 0, 0.9) 12%, black);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.panel-alt {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+}
+
+.pill {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.divider {
+  border-color: var(--border);
+}
+
+.accent-line {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.floating-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--muted);
+  border-radius: 9999px;
+  opacity: 0.6;
+}
