@@ -8,28 +8,29 @@ import SidebarRail from "@/components/SidebarRail";
 
 const webProjects: Project[] = [
   {
-    title: "Realtime Workspace",
+    title: "React Native Mobile App (Fitness / Health), Admin Web",
     description:
-      "Collaborative whiteboard with multiplayer cursors, custom canvas tools, and offline-ready sync.",
-    stack: ["Next.js", "React", "Framer Motion", "Tailwind", "Supabase"],
-    link: "#",
-    badge: "Web"
+      "Developed cross-platform fitness app with workouts, diet tracking, progress monitoring, and custom UI components.",
+    stack: ["React Native", "TypeScript / JavaScript", "Tailwind-style", "Tan-Stack", "React js", "Next Js", "SEO", "JSON-LD", "CI_CD", "DeepLink", "Redux"],
+    link: "https://www.fitbattle.in/",
+    badge: "App"
   },
   {
-    title: "Commerce Design System",
+    title: "React Native Expo Mobile App (Health)",
     description:
-      "Systematized UI kit powering checkout, merchandising, and analytics surfaces for a D2C platform.",
-    stack: ["Storybook", "TypeScript", "Tailwind", "Radix UI"],
-    link: "#",
-    badge: "Design System"
+      "Built Nashmukti platform from scratch collaboratively, handling architecture, UI, backend integration, optimization, and deployment.",
+    stack: ["React Native Expo", "TypeScript / JavaScript", "Tailwind-style", "Tan-Stack", "Firebase"],
+    link: "https://www.nashamuktis.com/",
+    badge: "App"
   },
   {
-    title: "Analytics Studio",
+    title: "Path IAS ECommerce Website ",
     description:
-      "Dynamic dashboards with streaming charts, drill-down interactions, and custom data visualizations.",
-    stack: ["Next.js", "React Query", "D3", "Tailwind"],
-    link: "#"
-  }
+      "Developed Pathias platform collaboratively from scratch using React, Next.js, REST APIs, and UI architecture, UI Development.",
+    stack: ["Nextjs", "Reactjs", "TypeScript", "Tailwind", "SCSS"],
+    link: "https://www.pathiasacademy.com/",
+    badge: "Website + Admin"
+  },
 ];
 
 const nativeProjects: Project[] = [
@@ -53,6 +54,10 @@ const nativeProjects: Project[] = [
     stack: ["React Native", "Skia", "Zustand"]
   }
 ];
+export const metadata = {
+  title: "Projects | Anmol Rahangdale",
+  description: "Projects by Full Stack Developer Anmol Rahangdale",
+};
 
 export default function Home() {
   return (
@@ -86,23 +91,23 @@ export default function Home() {
             {[
               {
                 title: "Languages",
-                items: ["TypeScript", "JavaScript", "Lua", "Python"]
+                items: ["TypeScript", "JavaScript", "PHP"]
               },
               {
                 title: "Frameworks",
-                items: ["React", "React Native", "Next.js", "Express.js"]
+                items: ["React", "React Native", "Next.js", "Vanilla js", "Wordpress"]
               },
               {
                 title: "Tools",
-                items: ["VSCode", "Figma", "Storybook", "Git"]
+                items: ["VSCode", "Figma", "Git"]
               },
               {
                 title: "Databases",
-                items: ["PostgreSQL", "MongoDB", "SQLite"]
+                items: ["MySqli"]
               },
               {
                 title: "Other",
-                items: ["REST", "Design Systems", "Animations", "Testing"]
+                items: ["SEO", "JSON-LD", "Animations", "Testing"]
               }
             ].map((group) => (
               <div
@@ -148,12 +153,8 @@ export default function Home() {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[
-                  "I like winter more than summer",
-                  "I bike with friends often",
-                  "I like pizza and pasta",
-                  "I was in Egypt, Poland and Turkey",
-                  "Favorite movie: The Green Mile",
-                  "I am still in school"
+                  "I like to be in sports",
+                  "Favourite Sports Cricket, Badminton.",
                 ].map((fact) => (
                   <span
                     key={fact}

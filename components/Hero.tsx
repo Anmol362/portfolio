@@ -65,7 +65,7 @@ const Hero = () => {
 						<div className='absolute -right-10 bottom-10 hidden h-20 w-20 border border-[var(--border)] md:block' />
 						<div className='flex h-full items-center justify-center'>
 							<div className='h-[90%] w-[90%] rounded-sm border border-[var(--border)] bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)] relative'>
-								<Image src='/Anmol.jpg' alt='Anmol Rahangdale' fill={true} />
+								<Image src='/Anmol.jpg' alt="Anmol Rahangdale Full Stack Developer" width={1920} height={1080} fill={true} />
 							</div>
 						</div>
 					</motion.div>

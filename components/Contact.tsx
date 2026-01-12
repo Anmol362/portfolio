@@ -38,22 +38,22 @@ const Contact = () => (
           <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
             Message me here
           </p>
-          <div className="mt-2 space-y-1 text-sm text-[var(--text)]">
-            <p>Anmol#1234</p>
-            <p className="mono text-[var(--muted)]">hello@anmol.dev</p>
+          <div className="mt-2 space-y-1 text-sm text-[var(--text)] text-wrap">
+            <Link href="mailto:mailtoiamanmolrahangdale@gmail.com" target="_blank" className="mono text-[var(--muted)] text-wrap">mailtoiamanmolrahangdale @gmail.com</Link>
           </div>
         </div>
       </div>
 
       <div className="flex flex-wrap gap-3">
         <Link
-          href="mailto:hello@anmol.dev"
-          className="mono rounded-sm border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-semibold text-[var(--text)] transition hover:border-[var(--accent)]"
+          href="mailto:mailtoiamanmolrahangdale@gmail.com"
+          target="_blank"
+          className="mono rounded-sm border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-semibold text-[var(--text)] transition hover:border-[var(--accent)] text-wrap"
         >
           Email me
         </Link>
         <Link
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/anmol-rahangdale-a3b582195/"
           className="mono rounded-sm border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-semibold text-[var(--text)] transition hover:border-[var(--accent)]"
           target="_blank"
         >

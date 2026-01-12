@@ -17,7 +17,7 @@ const Footer = () => (
           <span className="mono text-[var(--text)]">DB</span>
           <span className="mono text-[var(--text)]">EM</span>
         </div>
-        <p className="mt-3 text-xs">© Copyright 2024. Made by Anmol</p>
+        <p className="mt-3 text-xs">© Copyright 2025. Made by Anmol Rahangdale</p>
       </div>
     </div>
   </footer>

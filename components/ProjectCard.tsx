@@ -16,6 +16,10 @@ type Props = {
   index: number;
 };
 
+export const metadata = {
+  title: "Projects | Anmol Rahangdale",
+  description: "Projects by Full Stack Developer Anmol Rahangdale",
+};
 const ProjectCard = ({ project, index }: Props) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -36,6 +40,7 @@ const ProjectCard = ({ project, index }: Props) => (
         </div>
         {project.link ? (
           <Link
+            target="_blank"
             href={project.link}
             className="mono rounded-sm border border-[var(--border)] bg-[var(--surface-alt)] px-3 py-2 text-[11px] font-semibold text-[var(--text)] transition hover:border-[var(--accent)]"
           >
