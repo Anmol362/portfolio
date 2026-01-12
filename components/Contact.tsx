@@ -39,14 +39,14 @@ const Contact = () => (
             Message me here
           </p>
           <div className="mt-2 space-y-1 text-sm text-[var(--text)] text-wrap">
-            <Link href="mailto:mailtoiamanmolrahangdale@gmail.com" target="_blank" className="mono text-[var(--muted)] text-wrap">mailtoiamanmolrahangdale @gmail.com</Link>
+            <Link href="mailto:mailtoanmolrahangdale@gmail.com" target="_blank" className="mono text-[var(--muted)] text-wrap">mailtoiamanmolrahangdale @gmail.com</Link>
           </div>
         </div>
       </div>
 
       <div className="flex flex-wrap gap-3">
         <Link
-          href="mailto:mailtoiamanmolrahangdale@gmail.com"
+          href="mailto:mailtoanmolrahangdale@gmail.com"
           target="_blank"
           className="mono rounded-sm border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-semibold text-[var(--text)] transition hover:border-[var(--accent)] text-wrap"
         >

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useMemo } from "react";
 
 const socials = [
-  { href: "https://github.com", label: "GitHub", icon: "GH" },
-  { href: "https://dribbble.com", label: "Dribbble", icon: "DB" },
-  { href: "mailto:hello@anmol.dev", label: "Email", icon: "EM" }
+  { href: "https://github.com/Anmol362", label: "GitHub", icon: "GH" },
+  { href: "https://www.linkedin.com/in/anmol-rahangdale-a3b582195/", label: "LinkedIn", icon: "LN" },
+  { href: "mailto:mailtoanmolrahangdale@gmail.com", label: "Email", icon: "EM" }
 ];
 
 const SidebarRail = () => {
