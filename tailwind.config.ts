@@ -8,9 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["'Space Grotesk'", "Inter", "system-ui", "sans-serif"],
-        body: ["'Inter'", "system-ui", "sans-serif"],
-        mono: ["'IBM Plex Mono'", "ui-monospace", "SFMono-Regular", "monospace"]
+        display: ["'Sora'", "'Manrope'", "sans-serif"],
+        body: ["'Manrope'", "'Segoe UI'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "monospace"]
       },
       colors: {
         midnight: "#0b1021",

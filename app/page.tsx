@@ -3,60 +3,78 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import ProjectCard, { type Project } from "@/components/ProjectCard";
+import ScrollLag from "@/components/ScrollLag";
 import Section from "@/components/Section";
 import SidebarRail from "@/components/SidebarRail";
 
 const webProjects: Project[] = [
   {
-    title: "React Native Mobile App (Fitness / Health), Admin Web",
+    title: "Fitbattle Platform (App + Admin)",
     description:
-      "Developed cross-platform fitness app with workouts, diet tracking, progress monitoring, and custom UI components.",
-    stack: ["React Native", "TypeScript / JavaScript", "Tailwind-style", "Tan-Stack", "React js", "Next Js", "SEO", "JSON-LD", "CI_CD", "DeepLink", "Redux"],
+      "Developed a cross-platform fitness app and supporting admin portal with workout flows, diet tracking, SEO, and scalable UI components.",
+    stack: [
+      "React Native",
+      "TypeScript",
+      "Next.js",
+      "TanStack",
+      "Redux",
+      "Deep Linking"
+    ],
     link: "https://www.fitbattle.in/",
     badge: "App"
   },
   {
-    title: "React Native Expo Mobile App (Health)",
+    title: "Nashamukti Mobile Platform",
     description:
-      "Built Nashmukti platform from scratch collaboratively, handling architecture, UI, backend integration, optimization, and deployment.",
-    stack: ["React Native Expo", "TypeScript / JavaScript", "Tailwind-style", "Tan-Stack", "Firebase"],
+      "Built the health-focused app from scratch with architecture planning, backend integration, optimization, and release management.",
+    stack: ["React Native Expo", "TypeScript", "Firebase", "TanStack"],
     link: "https://www.nashamuktis.com/",
     badge: "App"
   },
   {
-    title: "Path IAS ECommerce Website ",
+    title: "Path IAS ECommerce",
     description:
-      "Developed Pathias platform collaboratively from scratch using React, Next.js, REST APIs, and UI architecture, UI Development.",
+      "Built the full learning-commerce website with UI architecture, API integrations, and production-focused frontend delivery.",
     stack: ["Nextjs", "Reactjs", "TypeScript", "Tailwind", "SCSS"],
     link: "https://www.pathiasacademy.com/",
     badge: "Website + Admin"
-  },
-];
-
-const nativeProjects: Project[] = [
-  {
-    title: "Wellness Companion",
-    description:
-      "Motion-rich React Native app with guided flows, haptics, and background audio.",
-    stack: ["React Native", "Reanimated", "Expo", "TypeScript"],
-    badge: "Mobile"
-  },
-  {
-    title: "Delivery Ops",
-    description:
-      "Courier routing app with offline caching, GPS heatmaps, and push notifications.",
-    stack: ["React Native", "Maps SDK", "MMKV", "Native Modules"]
-  },
-  {
-    title: "Creator Toolkit",
-    description:
-      "Cross-platform suite for editing clips with gesture-driven timelines and GPU-accelerated effects.",
-    stack: ["React Native", "Skia", "Zustand"]
   }
 ];
+
+const skillGroups = [
+  {
+    title: "Languages",
+    items: ["TypeScript", "JavaScript", "PHP"]
+  },
+  {
+    title: "Frameworks",
+    items: ["React", "React Native", "Next.js", "WordPress"]
+  },
+  {
+    title: "Tools",
+    items: ["Git", "Figma", "VSCode", "Postman"]
+  },
+  {
+    title: "Engineering Focus",
+    items: ["Architecture", "Performance", "SEO", "UI Motion", "Testing"]
+  }
+];
+
+const processSteps = [
+  "Define product goals, constraints, and user paths.",
+  "Create scalable UI structures and reusable components.",
+  "Ship fast, optimize continuously, and keep quality measurable."
+];
+
+const funFacts = [
+  "Sports keep my mindset sharp.",
+  "Cricket and badminton are my go-to reset.",
+  "I enjoy turning messy ideas into clean product flows."
+];
+
 export const metadata = {
   title: "Projects | Anmol Rahangdale",
-  description: "Projects by Full Stack Developer Anmol Rahangdale",
+  description: "Projects by Full Stack Developer Anmol Rahangdale"
 };
 
 export default function Home() {
@@ -66,62 +84,48 @@ export default function Home() {
       <SidebarRail />
       <Hero />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 md:px-6">
+      <ScrollLag className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 pb-16 pt-10 md:px-6" intensity={26}>
         <Section id="projects" label="Projects" title="#projects">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-[var(--muted)]">
-              Selected builds for web and native.
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="max-w-2xl text-sm leading-relaxed text-[var(--muted)]">
+              Three real projects shipped for production use across web and
+              mobile, with focus on performance, UI quality, and reliability.
             </p>
             <a
               href="#projects"
-              className="mono text-xs font-semibold text-[var(--accent)]"
+              className="mono rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text)] transition hover:border-[var(--ring)] hover:text-[var(--accent)]"
             >
-              View all ↠
+              Explore work
             </a>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {webProjects.slice(0, 3).map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
-            ))}
+
+          <div className="space-y-4">
+            <p className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+              Selected Work
+            </p>
+            <div className="grid gap-5 md:grid-cols-3">
+              {webProjects.map((project, index) => (
+                <ProjectCard key={project.title} project={project} index={index} />
+              ))}
+            </div>
           </div>
         </Section>
 
-        <Section id="skills" label="Skills" title="#skills">
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                title: "Languages",
-                items: ["TypeScript", "JavaScript", "PHP"]
-              },
-              {
-                title: "Frameworks",
-                items: ["React", "React Native", "Next.js", "Vanilla js", "Wordpress"]
-              },
-              {
-                title: "Tools",
-                items: ["VSCode", "Figma", "Git"]
-              },
-              {
-                title: "Databases",
-                items: ["MySqli"]
-              },
-              {
-                title: "Other",
-                items: ["SEO", "JSON-LD", "Animations", "Testing"]
-              }
-            ].map((group) => (
+        <Section id="skills" label="Skills" title="#capabilities">
+          <div className="grid gap-4 md:grid-cols-2">
+            {skillGroups.map((group) => (
               <div
                 key={group.title}
-                className="panel rounded-sm px-4 py-3 text-[var(--text)]"
+                className="panel rounded-2xl px-5 py-4 text-[var(--text)] transition hover:-translate-y-[2px] hover:border-[var(--ring)]"
               >
                 <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
                   {group.title}
                 </p>
-                <div className="mt-2 flex flex-wrap gap-2 text-sm">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="pill mono rounded-sm px-2 py-1 text-[12px] text-[var(--text)]"
+                      className="pill mono rounded-full px-3 py-1 text-[11px] text-[var(--text)]"
                     >
                       {item}
                     </span>
@@ -130,35 +134,53 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="panel-alt rounded-2xl px-5 py-5">
+            <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+              Delivery Approach
+            </p>
+            <div className="mt-3 grid gap-2 md:grid-cols-3">
+              {processSteps.map((step) => (
+                <div
+                  key={step}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--muted)]"
+                >
+                  {step}
+                </div>
+              ))}
+            </div>
+          </div>
         </Section>
 
         <Section id="about" label="About" title="#about-me">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)]">
-              <p>Hello, I&apos;m Anmol!</p>
-              <p>
-                I&apos;m a self-taught front-end developer who blends design and
-                engineering to build intentional, responsive experiences across
-                web and native.
+            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              <p className="text-base font-semibold text-[var(--text)]">
+                Hello, I&apos;m Anmol.
               </p>
               <p>
-                I love transforming ideas into launch-ready products, building
-                systems that scale, and adding just enough motion to make
-                interfaces feel alive.
+                I&apos;m a self-taught front-end developer blending design and
+                engineering to craft memorable product experiences.
+              </p>
+              <p>
+                My work is centered around robust architecture, responsive UI,
+                and intentional motion that supports usability.
+              </p>
+              <p>
+                I enjoy taking ideas from rough concept to launch-ready product
+                with clear communication and practical execution.
               </p>
             </div>
-            <div className="panel rounded-sm px-4 py-4">
+
+            <div className="panel rounded-2xl px-5 py-5">
               <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                Fun facts
+                Quick Notes
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {[
-                  "I like to be in sports",
-                  "Favourite Sports Cricket, Badminton.",
-                ].map((fact) => (
+                {funFacts.map((fact) => (
                   <span
                     key={fact}
-                    className="pill mono rounded-sm px-3 py-1 text-[12px] text-[var(--text)]"
+                    className="pill mono rounded-full px-3 py-1 text-[11px] text-[var(--text)]"
                   >
                     {fact}
                   </span>
@@ -168,12 +190,12 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="contact" label="Contact" title="#contacts">
+        <Section id="contact" label="Contact" title="#let-s-build">
           <Contact />
         </Section>
 
         <Footer />
-      </div>
+      </ScrollLag>
     </main>
   );
 }

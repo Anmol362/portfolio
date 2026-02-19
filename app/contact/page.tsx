@@ -1,8 +1,28 @@
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ScrollLag from "@/components/ScrollLag";
 import Section from "@/components/Section";
 import SidebarRail from "@/components/SidebarRail";
+import Link from "next/link";
+
+const channels = [
+  {
+    label: "Email",
+    value: "mailtoanmolrahangdale@gmail.com",
+    href: "mailto:mailtoanmolrahangdale@gmail.com"
+  },
+  {
+    label: "LinkedIn",
+    value: "anmol-rahangdale-a3b582195",
+    href: "https://www.linkedin.com/in/anmol-rahangdale-a3b582195/"
+  },
+  {
+    label: "GitHub",
+    value: "Anmol362",
+    href: "https://github.com/Anmol362"
+  }
+];
 
 export default function ContactPage() {
   return (
@@ -10,63 +30,54 @@ export default function ContactPage() {
       <Navbar />
       <SidebarRail />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 pt-10 md:px-6">
-        <Section id="contacts" label="Contacts" title="/contacts">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)]">
-              <p className="text-base text-[var(--text)]">Who am I?</p>
+      <ScrollLag className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 pb-16 pt-12 md:px-6" intensity={20}>
+        <Section id="contacts" label="Contact" title="/contact">
+          <div className="grid gap-6 lg:grid-cols-[1.06fr_0.94fr]">
+            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              <p className="text-base font-semibold text-[var(--text)]">
+                Let&apos;s build something meaningful.
+              </p>
               <p>
-                I&apos;m interested in freelance opportunities. If you have requests
-                or questions, don&apos;t hesitate to reach out.
+                I&apos;m open to freelance and contract collaborations focused on
+                frontend engineering, app interfaces, and product experience work.
               </p>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="panel rounded-sm px-4 py-3">
-                  <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                    Support me here
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-[var(--text)]">
-                    4149500120690030
-                  </p>
-                </div>
-                <div className="panel rounded-sm px-4 py-3">
-                  <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                    Message me here
-                  </p>
-                  <div className="mt-2 space-y-1 text-sm text-[var(--text)]">
-                    <p>Anmol#1234</p>
-                    <p className="mono text-[var(--muted)]">hello@anmol.dev</p>
-                  </div>
-                </div>
-              </div>
+              <p>
+                If you have a project in mind, send details around scope,
+                timeline, and expectations so I can respond quickly.
+              </p>
             </div>
-            <div className="panel rounded-sm px-4 py-4">
+
+            <div className="panel rounded-2xl px-5 py-5">
               <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                All media
+                Preferred channels
               </p>
-              <div className="mt-3 flex flex-col gap-2 text-sm text-[var(--text)]">
-                <div className="flex items-center gap-2">
-                  <span>GH</span>
-                  <span className="mono text-[var(--muted)]">@anmol</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>DB</span>
-                  <span className="mono text-[var(--muted)]">@anmol</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>EM</span>
-                  <span className="mono text-[var(--muted)]">hello@anmol.dev</span>
-                </div>
+              <div className="mt-3 space-y-3">
+                {channels.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    className="group block rounded-xl border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-3 transition hover:border-[var(--ring)]"
+                  >
+                    <p className="mono text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                      {item.label}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-[var(--text)] group-hover:text-[var(--accent)]">
+                      {item.value}
+                    </p>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </Section>
 
-        <Section id="contact-form" label="Message" title="#contact">
+        <Section id="contact-form" label="Message" title="#reach-out">
           <Contact />
         </Section>
 
         <Footer />
-      </div>
+      </ScrollLag>
     </main>
   );
 }

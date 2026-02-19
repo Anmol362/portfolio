@@ -1,30 +1,40 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ScrollLag from "@/components/ScrollLag";
 import Section from "@/components/Section";
 import SidebarRail from "@/components/SidebarRail";
+import Image from "next/image";
+import Link from "next/link";
 
 const skillGroups = [
-  { title: "Languages", items: ["TypeScript", "JavaScript", "Lua", "Python"] },
   {
-    title: "Frameworks",
-    items: ["React", "React Native", "Next.js", "Express.js"]
+    title: "Core stack",
+    items: ["React", "React Native", "Next.js", "TypeScript"]
   },
   {
-    title: "Tools",
-    items: ["VSCode", "Figma", "Storybook", "Git", "Neovim"]
+    title: "Product skills",
+    items: ["UI Architecture", "Component Systems", "SEO", "Performance"]
   },
-  { title: "Databases", items: ["PostgreSQL", "MongoDB", "SQLite"] },
-  { title: "Other", items: ["Design Systems", "Animations", "REST", "Testing"] }
+  {
+    title: "Tooling",
+    items: ["Git", "Figma", "VSCode", "Postman"]
+  },
+  {
+    title: "Working style",
+    items: ["Ownership", "Fast Iteration", "Clear Communication"]
+  }
+];
+
+const milestones = [
+  "5+ years building frontend products",
+  "20+ shipped web and mobile projects",
+  "Strong focus on scalable UI and maintainable code"
 ];
 
 const funFacts = [
-  "I like winter more than summer",
-  "I often bike with my friends",
-  "I like pizza and pasta",
-  "I was in Egypt, Poland and Turkey",
-  "My favorite movie is The Green Mile",
-  "I am still in school",
-  "I don’t have any siblings"
+  "Cricket and badminton are part of my weekly routine.",
+  "I like translating rough concepts into usable UI fast.",
+  "I care about details that make interfaces feel premium."
 ];
 
 export default function AboutPage() {
@@ -33,50 +43,65 @@ export default function AboutPage() {
       <Navbar />
       <SidebarRail />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-16 pt-10 md:px-6">
+      <ScrollLag className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-20 px-4 pb-16 pt-12 md:px-6" intensity={22}>
         <Section id="about-hero" label="About" title="/about-me">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)]">
-              <p className="text-base text-[var(--text)]">Who am I?</p>
-              <p>Hello, I&apos;m Anmol!</p>
+            <div className="space-y-4 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              <p className="text-base font-semibold text-[var(--text)]">Who am I?</p>
               <p>
-                I&apos;m a self-taught front-end developer based in India. I build
-                responsive web and native experiences that mix technology with
-                creativity and motion.
+                I&apos;m Anmol, a frontend engineer focused on creating smooth,
+                scalable digital experiences across web and native platforms.
               </p>
               <p>
-                I focus on clean systems, accessibility, and animations that feel
-                intentional. From scratch builds to scaling design systems, I help
-                teams ship polished experiences.
+                I work at the intersection of design and engineering, building UI
+                systems that feel polished while remaining maintainable for teams.
               </p>
+              <p>
+                I enjoy shipping production-ready interfaces with practical motion,
+                strong accessibility foundations, and reliable performance.
+              </p>
+              <Link
+                href="/contact"
+                className="mono inline-flex rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text)] transition hover:border-[var(--ring)] hover:text-[var(--accent)]"
+              >
+                Let&apos;s talk
+              </Link>
             </div>
-            <div className="relative flex justify-center">
-              <div className="absolute -left-6 top-12 hidden h-16 w-16 border border-[var(--border)] lg:block" />
-              <div className="absolute -right-10 bottom-10 hidden h-20 w-20 border border-[var(--border)] lg:block" />
-              <div className="relative aspect-[3/4] w-full max-w-[360px] rounded-sm border border-[var(--border)] bg-[var(--surface)] p-4">
-                <div className="flex h-full items-center justify-center">
-                  <div className="h-[90%] w-[90%] rounded-sm border border-[var(--border)] bg-gradient-to-br from-[var(--surface)] to-[var(--surface-alt)]" />
+
+            <div className="panel relative overflow-hidden rounded-[28px] p-4">
+              <div className="relative h-[420px] w-full overflow-hidden rounded-[20px] border border-[var(--border)]">
+                <Image
+                  src="/Anmol.jpg"
+                  alt="Anmol Rahangdale"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent p-4">
+                  <p className="mono text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                    Frontend Engineer
+                  </p>
+                  <p className="mt-1 text-sm text-[var(--text)]">
+                    React + React Native + Next.js
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </Section>
 
-        <Section id="skills" label="Skills" title="#skills">
-          <div className="grid gap-4 md:grid-cols-3">
+        <Section id="skills" label="Skills" title="#what-i-work-with">
+          <div className="grid gap-4 md:grid-cols-2">
             {skillGroups.map((group) => (
-              <div
-                key={group.title}
-                className="panel rounded-sm px-4 py-3 text-[var(--text)]"
-              >
+              <div key={group.title} className="panel rounded-2xl px-5 py-4">
                 <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
                   {group.title}
                 </p>
-                <div className="mt-2 flex flex-wrap gap-2 text-sm">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="pill mono rounded-sm px-2 py-1 text-[12px] text-[var(--text)]"
+                      className="pill mono rounded-full px-3 py-1 text-[11px] text-[var(--text)]"
                     >
                       {item}
                     </span>
@@ -85,23 +110,41 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          <div className="panel-alt rounded-2xl px-5 py-5">
+            <p className="mono text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+              Milestones
+            </p>
+            <div className="mt-3 grid gap-3 md:grid-cols-3">
+              {milestones.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--muted)]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </Section>
 
-        <Section id="fun-facts" label="Fun" title="#my-fun-facts">
-          <div className="flex flex-wrap gap-2">
-            {funFacts.map((fact) => (
-              <span
-                key={fact}
-                className="pill mono rounded-sm px-3 py-1 text-[12px] text-[var(--text)]"
-              >
-                {fact}
-              </span>
-            ))}
+        <Section id="fun-facts" label="Personal" title="#quick-notes">
+          <div className="panel rounded-2xl px-5 py-5">
+            <div className="flex flex-wrap gap-2">
+              {funFacts.map((fact) => (
+                <span
+                  key={fact}
+                  className="pill mono rounded-full px-3 py-1 text-[11px] text-[var(--text)]"
+                >
+                  {fact}
+                </span>
+              ))}
+            </div>
           </div>
         </Section>
 
         <Footer />
-      </div>
+      </ScrollLag>
     </main>
   );
 }

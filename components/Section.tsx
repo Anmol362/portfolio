@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import type { ReactNode } from "react";
+import { useRef } from "react";
 
 type Props = {
   id?: string;
@@ -10,30 +11,68 @@ type Props = {
   children: ReactNode;
 };
 
-const Section = ({ id, label, title, children }: Props) => (
-  <section id={id} className="scroll-mt-24">
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="space-y-8"
+const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const container = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.12,
+      duration: 0.62,
+      ease: smoothEase
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.42, ease: "easeOut" } }
+};
+
+const Section = ({ id, label, title, children }: Props) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.95", "end 0.1"]
+  });
+  const lagY = useTransform(scrollYProgress, [0, 1], [20, -14]);
+  const smoothY = useSpring(lagY, {
+    stiffness: 90,
+    damping: 26,
+    mass: 0.34
+  });
+
+  return (
+    <motion.section
+      ref={sectionRef}
+      id={id}
+      style={{ y: smoothY }}
+      className="scroll-mt-28"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="space-y-3">
-        <span className="inline-flex items-center gap-2 rounded-sm border border-[var(--border)] bg-[var(--surface)] px-3 py-1 text-xs uppercase tracking-[0.35em] text-[var(--accent)]">
-          <span className="h-1 w-1 rounded-full bg-[var(--accent)]" />
+      <motion.div variants={item} className="space-y-3">
+        <span className="inline-flex items-center gap-2 rounded-full border border-[var(--ring)] bg-[var(--surface)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)] shadow-[var(--shadow-soft)]">
+          <span className="h-[6px] w-[6px] rounded-full bg-[var(--accent)]" />
           {label}
         </span>
         <div>
-          <h2 className="text-3xl font-display font-semibold text-[var(--text)] md:text-4xl">
+          <h2 className="text-3xl font-display font-semibold text-[var(--text)] md:text-[2.7rem]">
             {title}
           </h2>
-          <div className="mt-3 h-[2px] w-20 rounded-full bg-[var(--accent)]" />
+          <div className="accent-line mt-3" />
         </div>
-      </div>
-      {children}
-    </motion.div>
-  </section>
-);
+      </motion.div>
+
+      <motion.div variants={item} className="mt-8 space-y-6">
+        {children}
+      </motion.div>
+    </motion.section>
+  );
+};
 
 export default Section;

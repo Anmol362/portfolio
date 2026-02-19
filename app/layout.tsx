@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
+import PageTransition from '@/components/PageTransition';
+import FloatingObjects from '@/components/FloatingObjects';
+import SpaceBackdrop from '@/components/SpaceBackdrop';
 
 export const metadata: Metadata = {
 	title: 'Anmol | React & React Native Developer',
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
 	],
 	authors: [{ name: 'Anmol' }],
 	robots: 'index, follow',
-	themeColor: '#1d2029',
+	themeColor: '#030712',
 	manifest: '/manifest.webmanifest',
 	icons: {
 		icon: [
@@ -98,8 +101,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<ThemeProvider>
 					<ServiceWorkerRegister />
 					<div className='relative overflow-hidden'>
-						<div className='pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(126,242,157,0.04),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(143,211,255,0.05),transparent_30%)]' />
-						<div className='relative z-10'>{children}</div>
+						<SpaceBackdrop />
+						<FloatingObjects />
+						<div className='relative z-10'>
+							<PageTransition>{children}</PageTransition>
+						</div>
 					</div>
 				</ThemeProvider>
 			</body>
